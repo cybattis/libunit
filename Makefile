@@ -16,7 +16,7 @@ INCLUDE		=	-Iincludes -Ilibft
 # ****************************************************************************
 
 SRCSDIR		=	src
-LIBUNIT		=	launch_tests.c load_test.c
+LIBUNIT		=	launch_tests.c launch_tests_utils.c load_test.c
 
 LIBFT		=	libft
 #LinkLists

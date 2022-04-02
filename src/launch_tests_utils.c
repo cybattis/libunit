@@ -6,30 +6,27 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 15:14:21 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 15:47:35 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/02 16:25:54 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
 #include "../libft/libft.h"
 
-void	print_test(t_unit_test *testlist, int *test_count)
+void	print_test(t_unit_test *testlist, t_test_data *test_data)
 {
-	test_count++;
+	test_data->test_count++;
 	ft_putstr_fd("Test ", 1);
-	ft_putnbr_fd(test_count, 1);
+	ft_putnbr_fd(test_data->test_count, 1);
 	ft_putstr_fd(":", 1);
 	ft_putstr_fd(testlist->test_name, 1);
 	ft_putstr_fd(":", 1);
 }
 
-void	print_test_status(int *test_passed, int status)
+void	print_test_status(int status)
 {
 	if (status == 0)
-	{
-		(*test_passed)++;
 		ft_putstr_fd("\033[32m[OK]\n\033[0m", 1);
-	}
 	else if (status == SIGSEGV)
 		ft_putstr_fd("\033[33m[SIGSEGV]\n\033[0m", 1);
 	else if (status == SIGBUS)

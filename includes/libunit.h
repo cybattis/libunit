@@ -25,8 +25,8 @@ typedef struct s_test_data
 }	t_test_data;
 
 void	launch_tests(t_unit_test *testlist);
-void	print_test(t_unit_test *testlist, int *test_count);
-void	print_test_status(t_unit_test *tlist, int t_count, int *t_passed, int status)
+void	print_test(t_unit_test *testlist, t_test_data *test_data);
+void	print_test_status(int status);
 void	print_result(int test_count, int test_passed);
 
 void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
