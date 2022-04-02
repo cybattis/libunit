@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_unit_test **lst, void (*del)(void*))
 {
-	t_list	*current;
-	t_list	*next;
+	t_unit_test	*current;
+	t_unit_test	*next;
 
 	current = *lst;
 	while (current)

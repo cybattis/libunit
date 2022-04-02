@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_unit_test *test_list, void (*del)(void*))
 {
 	if (del)
-		del(lst->content);
-	free(lst);
+		del(test_list->test_name);
+	free(test_list);
 }

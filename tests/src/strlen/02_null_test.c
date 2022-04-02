@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <cybattis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 17:09:14 by cybattis          #+#    #+#             */
-/*   Updated: 2021/11/10 11:34:27 by cybattis         ###   ########.fr       */
+/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
+/*   Updated: 2022/04/02 15:31:43 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../libft/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	null_test(void)
 {
-	t_list	*current;
-
-	if (!lst)
-		return ;
-	current = lst;
-	while (current)
-	{
-		f(current->content);
-		current = current->next;
-	}
+	ft_strlen(NULL);
+	return (0);
 }

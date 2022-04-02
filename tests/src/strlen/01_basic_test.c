@@ -6,13 +6,15 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 14:09:13 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:37:20 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../libft/libft.h"
 
 int	basic_test(void)
 {
-	return (0);
+	if (ft_strlen("coucou") == 6)
+		return (0);
+	return (1);
 }

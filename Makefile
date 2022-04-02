@@ -21,12 +21,12 @@ LIBUNIT		=	launch_tests.c load_test.c
 LIBFT		=	libft
 #LinkLists
 LINKLISTDIR	=	link_list
-LINKLIST	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c				\
-				ft_lstsize.c ft_lstlast.c ft_lstmap.c ft_lstnew.c
+LINKLIST	=	ft_lstadd_back.c ft_lstclear.c ft_lstdelone.c ft_lstsize.c ft_lstnew.c
+
 #IO
 IODIR		=	io
 IO			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_get_next_line.c			\
-				ft_putchar.c ft_puts.c ft_putnbr.c ft_putstr.c ft_print_matrix.c
+				ft_putchar.c ft_puts.c ft_putnbr.c ft_putstr.c
 #Printf
 PRINTFDIR	=	io/printf
 PRINTF		=	ft_printf.c conv_func.c conv_func2.c get_flags.c print_flags.c print_flags2.c				\
@@ -69,7 +69,7 @@ $(OBJSDIR)/%.o:	$(LIBFT)/*/*/%.c | $(OBJSDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
-all: 		$(NAME)
+all:	header	$(NAME)
 
 $(NAME):	$(OBJS)
 	@printf "$(_BLUE)\nCompiled libunit source files\n"
@@ -88,9 +88,9 @@ fclean:		clean
 
 re:		fclean all
 
-test:	$(NAME)
+test:		all
 	@$(MAKE) -j4 -C tests -r -R --warn-undefined-variables
-	@printf "=========== Launching test suite ============\n\n"
+	@printf "\n=========== Launching test suite ============\n\n"
 	@./tests/tester
 
 $(OBJSDIR):
@@ -102,6 +102,19 @@ $(OBJSDIR):
 # =====================
 
 print-%:	; @echo $* = $($*)
+
+header:
+	@printf "\n"
+	@printf "$(_YELLOW)\t __       ______ _______  __    __ __    __ ______ ________  $(_END)\n"
+	@printf "$(_YELLOW)\t|  \     |      \       \|  \  |  \  \  |  \      \        \ $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓      \▓▓▓▓▓▓ ▓▓▓▓▓▓▓\ ▓▓  | ▓▓ ▓▓\ | ▓▓\▓▓▓▓▓▓\▓▓▓▓▓▓▓▓ $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓       | ▓▓ | ▓▓__/ ▓▓ ▓▓  | ▓▓ ▓▓▓\| ▓▓ | ▓▓    | ▓▓    $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓       | ▓▓ | ▓▓    ▓▓ ▓▓  | ▓▓ ▓▓▓▓\ ▓▓ | ▓▓    | ▓▓    $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓       | ▓▓ | ▓▓▓▓▓▓▓\ ▓▓  | ▓▓ ▓▓\▓▓ ▓▓ | ▓▓    | ▓▓    $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓_____ _| ▓▓_| ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓ \▓▓▓▓_| ▓▓_   | ▓▓    $(_END)\n"
+	@printf "$(_YELLOW)\t| ▓▓     \   ▓▓ \ ▓▓    ▓▓\▓▓    ▓▓ ▓▓  \▓▓▓   ▓▓ \  | ▓▓    $(_END)\n"
+	@printf "$(_YELLOW)\t \▓▓▓▓▓▓▓▓\▓▓▓▓▓▓\▓▓▓▓▓▓▓  \▓▓▓▓▓▓ \▓▓   \▓▓\▓▓▓▓▓▓   \▓▓    $(_END)\n"
+	@printf "\n"
 
 # Colors
 # ****************************************************************************
