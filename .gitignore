@@ -1,6 +1,6 @@
 libunit
-obj
-objd
+obj*
+/tests/tester
 
 # Prerequisites
 *.d
