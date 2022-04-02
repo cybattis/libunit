@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-t_list	*ft_lstnew(void *content)
+t_unit_test	*ft_lstnew(char *test_name, int (*f)(void))
 {
-	t_list	*new;
+	t_unit_test	*new;
 
-	new = (t_list *)malloc(sizeof(t_list) * 1);
+	new = (t_unit_test *)malloc(sizeof(t_unit_test) * 1);
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->test_name = ft_strdup(test_name);
+	new->f = f;
 	new->next = NULL;
 	return (new);
 }

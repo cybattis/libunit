@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_unit_test *lst)
 {
-	t_list	*list;
+	t_unit_test	*list;
 	int		i;
 
 	if (!lst)
