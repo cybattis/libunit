@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_test.h                                     :+:      :+:    :+:   */
+/*   03_ft_atoi_plus_sign.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
+/*   Created: 2022/04/02 16:48:03 by ctaleb            #+#    #+#             */
 /*   Updated: 2022/04/02 18:57:41 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ATOI_TEST_H
-#define FT_ATOI_TEST_H
+#include "../../../libft/libft.h"
 
-int	ft_atoi_basic_test(void);
-int	ft_atoi_minus_sign(void);
-int	ft_atoi_plus_sign(void);
-int	ft_atoi_multi_minus_sign(void);
+int	ft_atoi_plus_sign(void)
+{
+	int val;
 
-#endif
+	val = ft_atoi("+42");
+	if (val == 42)
+		return (0);
+	return (-1);
+}

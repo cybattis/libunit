@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_timeout_test.c                                  :+:      :+:    :+:   */
+/*   04_ft_atoi_multi_minus_sign.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 16:48:03 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 17:18:53 by cybattis         ###   ########.fr       */
+/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
+/*   Updated: 2022/04/02 19:01:33 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../libft/libft.h"
 
-int ft_atoi_timeout_test(void)
+int	ft_atoi_multi_minus_sign(void)
 {
-	sleep(6);
-	return (0);
+	int val;
+
+	val = ft_atoi("---42");
+	if (val == 0)
+		return (0);
+	return (-1);
 }

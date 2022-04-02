@@ -18,11 +18,13 @@ INCLUDE		=	-I../includes -I../libft -I includes
 SRCDIR		=	src
 
 STRLEN_DIR	=	ft_strlen
-SRC_STRLEN	=	00_ft_strlen_launcher.c 01_ft_strlen_basic_test.c 02_ft_strlen_null_test.c 03_ft_strlen_timeout_test.c
+SRC_STRLEN	=	00_ft_strlen_launcher.c 01_ft_strlen_basic_test.c 02_ft_strlen_null_test.c						\
+				03_ft_strlen_timeout_test.c
 TEST_STRLEN	=	$(addprefix $(STRLEN_DIR)/, $(SRC_STRLEN))
 
 ATOI_DIR	=	ft_atoi
-SRC_ATOI	=	00_ft_atoi_launcher.c 01_ft_atoi_basic_test.c 02_ft_atoi_null_test.c 03_ft_atoi_timeout_test.c
+SRC_ATOI	=	00_ft_atoi_launcher.c 01_ft_atoi_basic_test.c 02_ft_atoi_minus_sign.c 03_ft_atoi_plus_sign.c	\
+				04_ft_atoi_multi_minus_sign.c
 TEST_ATOI	=	$(addprefix $(ATOI_DIR)/, $(SRC_ATOI))
 
 TEST_SRCS	=	$(addprefix $(SRCDIR)/, main.c)					\

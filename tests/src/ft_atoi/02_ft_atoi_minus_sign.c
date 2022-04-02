@@ -12,8 +12,12 @@
 
 #include "../../../libft/libft.h"
 
-int	ft_atoi_null_test(void)
+int	ft_atoi_minus_sign(void)
 {
-	ft_atoi(NULL);
-	return (0);
+	int val;
+
+	val = ft_atoi("-42");
+	if (val == -42)
+		return (0);
+	return (-1);
 }
