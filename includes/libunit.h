@@ -1,14 +1,12 @@
 
 
 #ifndef LIBUNIT_H
-#define LIBUNIT_H
+# define LIBUNIT_H
 
-typedef struct s_unit_suite
-{
-	size_t	test_count;
-	size_t	test_fail;
-	size_t	test_pass;
-}	t_unit_suite;
+#include "libft.h"
+#include <sys/wait.h>
+#include <unistd.h>
+#include <signal.h>
 
 typedef struct s_unit_test
 {
@@ -17,4 +15,6 @@ typedef struct s_unit_test
 	void *next;
 }	t_unit_test;
 
-#endif //LIBUNIT_H
+void	launch_tests(t_unit_test *testlist);
+
+#endif

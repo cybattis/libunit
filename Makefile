@@ -8,20 +8,18 @@ NAME_DBG 		=	libunit_d
 SHELL 		=	/bin/bash
 CC 			=	gcc
 
-CFLAGS		=	-Wall -Wextra -MD $(INCLUDE)
+CFLAGS		=	-Wall -Wextra $(INCLUDE)
 DBFLAGS		=	$(CFLAGS) -g3 -fsanitize=address
 
-INCLUDE		=	-Iincludes -Ilibft/
+INCLUDE		=	-Iincludes -Ilibft
 
 # Source files
 # ****************************************************************************
 
 SRCSDIR		=	src
-
-LIBUNIT		=
+LIBUNIT		=	launch_tests.c load_test.c
 
 LIBFT		=	libft
-
 #LinkLists
 LINKLISTDIR	=	link_list
 LINKLIST	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c				\
@@ -46,32 +44,34 @@ CSTRINGS	=	ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_ispr
 				ft_substr.c ft_tolower.c ft_toupper.c ft_strndup.c ft_strnrev.c ft_strrev.c ft_atol.c		\
 				ft_nbrlen.c ft_isspace.c ft_atoi_base.c ft_strtoupper.c ft_strtolower.c
 
-
-SRCS		=	$(addprefix $(LINKLISTDIR)/, $(LINKLIST))	\
+SRCS		=	$(addprefix $(SRCSDIR)/, $(LIBUNIT))		\
+				$(addprefix $(LINKLISTDIR)/, $(LINKLIST))	\
 				$(addprefix $(IODIR)/, $(IO)) 				\
 				$(addprefix $(PRINTFDIR)/, $(PRINTF)) 		\
 				$(addprefix $(MEMORYDIR)/, $(MEMORY)) 		\
 				$(addprefix $(CSTRINGSDIR)/, $(CSTRINGS)) 	\
 				$(addprefix $(SRCSDIR)/, $(LIBUNIT)) 		\
 
-
 OBJSDIR		=	obj
 OBJS		=	$(addprefix $(OBJSDIR)/, $(notdir $(SRCS:.c=.o)))
 
-DEPENDS		=	$(SRCS:.o=.d)
+#DEPENDS		=	$(SRCS:.o=.d)
+
+TESTDIR		=	tests
+TESTSRC		=	strlen/00_launcher.c
 
 # Recipe
 # ****************************************************************************
 
-$(OBJSDIR)/%.o:	$(SRCSDIR)/%.c $(DEPS) | $(OBJSDIR)
+$(OBJSDIR)/%.o:	$(SRCSDIR)/%.c | $(OBJSDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
-$(OBJSDIR)/%.o:	$(LIBFT)/*/%.c $(DEPS) | $(OBJSDIR)
+$(OBJSDIR)/%.o:	$(LIBFT)/*/%.c | $(OBJSDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
-$(OBJSDIR)/%.o:	$(LIBFT)/*/*/%.c $(DEPS) | $(OBJSDIR)
+$(OBJSDIR)/%.o:	$(LIBFT)/*/*/%.c | $(OBJSDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
@@ -93,12 +93,12 @@ fclean:		clean
 
 re:			fclean all
 
+test:
+
 $(OBJSDIR):
 	@mkdir -p $(OBJSDIR)
 
 .PHONY: all clean fclean re debug libft test
-
--include $(DEPENDS)
 
 # Misc
 # =====================
