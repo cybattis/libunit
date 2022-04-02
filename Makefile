@@ -1,6 +1,6 @@
 
-NAME 			=	libunit
-NAME_DBG 		=	libunit_d
+NAME 			=	libunit.a
+TESTER			=	tester
 
 # Config
 # ****************************************************************************
@@ -55,12 +55,7 @@ SRCS		=	$(addprefix $(SRCSDIR)/, $(LIBUNIT))		\
 OBJSDIR		=	obj
 OBJS		=	$(addprefix $(OBJSDIR)/, $(notdir $(SRCS:.c=.o)))
 
-#DEPENDS		=	$(SRCS:.o=.d)
-
-TESTDIR		=	tests
-TESTSRC		=	strlen/00_launcher.c
-
-# Recipe
+# Libunit
 # ****************************************************************************
 
 $(OBJSDIR)/%.o:	$(SRCSDIR)/%.c | $(OBJSDIR)
@@ -82,6 +77,31 @@ $(NAME):	$(OBJS)
 	@ar -rcs $(NAME) $(OBJS)
 	@printf "$(_GREEN)Finish compiling $(NAMED)!$(_END)\n"
 
+# Tester
+# ****************************************************************************
+
+TESTDIR		=	tests
+TESTSTRLEN	=	strlen/00_launcher.c main.c
+
+TESTSRCS	=	$(addprefix $(TESTDIR)/, $(TESTSTRLEN))
+
+OBJDIR_TEST	=	obj_t
+OBJSTEST	=	$(addprefix $(OBJDIR_TEST)/, $(notdir $(TESTSRCS:.c=.o)))
+
+$(OBJDIR_TEST)/%.o:	$(TESTDIR)/%.c | $(OBJDIR_TEST)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(_GREEN)█$(_END)"
+
+$(OBJDIR_TEST)/%.o:	$(TESTDIR)/*/%.c | $(OBJDIR_TEST)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(_GREEN)█$(_END)"
+
+$(TESTER):	$(OBJSTEST)
+	@$(CC) $(CFLAGS) $(OBJSTEST) $(NAME) -o $(TESTER)
+
+# Action
+# ****************************************************************************
+
 clean:
 	@printf "$(_YELLOW)Removing object files ...$(_END)\n"
 	@rm -rf $(OBJSDIR) $(OBJSDIRD)
@@ -91,12 +111,16 @@ fclean:		clean
 	@printf "$(_RED)Removing Executable ...$(_END)\n"
 	@rm -rf $(NAME) $(NAMED)
 
-re:			fclean all
+re:		fclean all
 
-test:
+test:	$(TESTER)
+	./tester
 
 $(OBJSDIR):
 	@mkdir -p $(OBJSDIR)
+
+$(OBJDIR_TEST):
+	@mkdir -p $(OBJDIR_TEST)
 
 .PHONY: all clean fclean re debug libft test
 
