@@ -25,7 +25,8 @@ void	launch_tests(t_unit_test *testlist)
 		if (pid == 0)
 		{
 			signal(SIGALRM, timeout_handler);
-			alarm(TIMEOUT);
+			if (TIMEOUT > 0)
+				alarm(TIMEOUT);
 			testlist->f();
 			exit(0);
 		}
