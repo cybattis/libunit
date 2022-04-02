@@ -18,7 +18,7 @@ INCLUDE		=	-I../includes -I../libft -Iincludes
 # ****************************************************************************
 
 TESTDIR		=	src
-TEST_STRLEN	=	main.c strlen/00_launcher.c strlen/01_basic_test.c strlen/02_null_test.c
+TEST_STRLEN	=	main.c strlen/00_launcher.c strlen/01_basic_test.c strlen/02_null_test.c strlen/03_timeout_test.c
 
 TEST_SRCS	=	$(addprefix $(TESTDIR)/, $(TEST_STRLEN))
 

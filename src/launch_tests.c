@@ -6,18 +6,12 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 16:45:51 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/02 16:58:58 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
 #include "../libft/libft.h"
-
-static void	timeout_handler(int sig)
-{
-	(void)sig;
-	exit(-1);
-}
 
 static pid_t	fork_test(t_unit_test *testlist)
 {
@@ -28,7 +22,6 @@ static pid_t	fork_test(t_unit_test *testlist)
 		return (-1);
 	else if (pid == 0)
 	{
-		signal(SIGALRM, timeout_handler);
 		if (TIMEOUT > 0)
 			alarm(TIMEOUT);
 		testlist->f();

@@ -6,7 +6,7 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 15:14:21 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 16:25:54 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/02 16:58:30 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_test_status(int status)
 		ft_putstr_fd("\033[33m[SIGPIPE]\n\033[0m", 1);
 	else if (status == SIGILL)
 		ft_putstr_fd("\033[33m[SIGILL]\n\033[0m", 1);
-	else if (status == -1)
+	else if (status == SIGALRM)
 		ft_putstr_fd("\033[1;30m[TIMEOUT]\n\033[0m", 1);
 	else
 		ft_putstr_fd("\033[31m[KO]\n\033[0m", 1);
