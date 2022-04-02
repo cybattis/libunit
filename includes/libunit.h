@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <signal.h>
 
+#define TIMEOUT 5
+
 typedef struct s_unit_test
 {
 	char *test_name;
