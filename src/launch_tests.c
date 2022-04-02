@@ -26,10 +26,8 @@ void	launch_tests(t_unit_test *testlist)
 			wait(&pid);
 			if (WEXITSTATUS(pid) == 0)
 				print_test(testlist, test_count, &test_passed, 0);
-			else if (WSTOPSIG(pid) == SIGBUS)
-				print_test(testlist, test_count, &test_passed, SIGBUS);
-			else if (WSTOPSIG(pid) == SIGSEGV)
-				print_test(testlist, test_count, &test_passed, SIGSEGV);
+			else if (WIFSTOPPED(pid))
+				print_test(testlist, test_count, &test_passed, WSTOPSIG(pid));
 			else
 				print_test(testlist, test_count, &test_passed, -1);
 		}
@@ -48,14 +46,22 @@ static void	print_test(t_unit_test *testlist, int test_count, int *test_passed, 
 	if (status == 0)
 	{
 		(*test_passed)++;
-		ft_putstr_fd("OK\n", 1);
+		ft_putstr_fd("\033[32mOK\n\033[0m", 1);
 	}
 	else if (status == SIGSEGV)
-		ft_putstr_fd("SIGSEGV\n", 1);
+		ft_putstr_fd("\033[33mSIGSEGV\n\033[0m", 1);
 	else if (status == SIGBUS)
-		ft_putstr_fd("SIGBUS\n", 1);
+		ft_putstr_fd("\033[33mSIGBUS\n\033[0m", 1);
+	else if (status == SIGABRT)
+		ft_putstr_fd("\033[33mSIGABRT\n\033[0m", 1);
+	else if (status == SIGFPE)
+		ft_putstr_fd("\033[33mSIGFPE\n\033[0m", 1);
+	else if (status == SIGPIPE)
+		ft_putstr_fd("\033[33mSIGPIPE\n\033[0m", 1);
+	else if (status == SIGILL)
+		ft_putstr_fd("\033[33mSIGILL\n\033[0m", 1);
 	else
-		ft_putstr_fd("Unknown error\n", 1);
+		ft_putstr_fd("\033[31mKO\n\033[0m", 1);
 }
 
 static void	print_result(int test_count, int test_passed)
