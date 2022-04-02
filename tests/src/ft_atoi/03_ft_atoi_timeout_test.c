@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_test.c                                        :+:      :+:    :+:   */
+/*   03_timeout_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 15:29:31 by cybattis         ###   ########.fr       */
+/*   Created: 2022/04/02 16:48:03 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/02 17:18:53 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "../../../libft/libft.h"
 
-void	load_test(t_unit_test **test_list, char *test_name, int (*f)(void))
+int ft_atoi_timeout_test(void)
 {
-	if (!test_list)
-		return ;
-	if (!*test_list)
-	{
-		*test_list = ft_lstnew(test_name, f);
-		if (!*test_list)
-			return ;
-	}
-	else
-		ft_lstadd_back(test_list, ft_lstnew(test_name, f));
+	sleep(6);
+	return (0);
 }

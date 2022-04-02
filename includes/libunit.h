@@ -24,13 +24,12 @@ typedef struct s_test_data
 	pid_t	pid;
 }	t_test_data;
 
-void	launch_tests(t_unit_test *testlist);
-void	print_test(t_unit_test *testlist, t_test_data *test_data);
-void	print_test_status(int status);
-void	print_result(int test_count, int test_passed);
-
-void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
 void		launch_tests(t_unit_test *testlist);
+void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
+void		print_test(t_unit_test *testlist, t_test_data *test_data);
+void		print_test_status(int status);
+void		print_result(int test_count, int test_passed);
+
 
 t_unit_test	*ft_lstnew(char *test_name, int (*f)(void));
 void		ft_lstadd_back(t_unit_test **alst, t_unit_test *new);
