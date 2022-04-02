@@ -13,6 +13,7 @@
 #ifndef TEST_SUITE_H
 # define TEST_SUITE_H
 
-int	strlen_launcher(void);
+int	ft_strlen_launcher(void);
+int	ft_atoi_launcher(void);
 
 #endif

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_timeout_test.c                                  :+:      :+:    :+:   */
+/*   ft_atoi_test.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 16:48:03 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 16:49:40 by ctaleb           ###   ########lyon.fr   */
+/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
+/*   Updated: 2022/04/02 17:20:46 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../libft/libft.h"
+#ifndef FT_ATOI_TEST_H
+#define FT_ATOI_TEST_H
 
-int timeout_test(void)
-{
-	sleep(6);
-	return (0);
-}
+int	ft_atoi_basic_test(void);
+int	ft_atoi_null_test(void);
+int ft_atoi_timeout_test(void);
+
+#endif

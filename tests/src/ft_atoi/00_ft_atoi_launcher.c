@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_test.c                                        :+:      :+:    :+:   */
+/*   00_ft_atoi_launcher.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 15:29:31 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/02 18:37:21 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "../../../includes/libunit.h"
+#include "../../includes/ft_atoi_test.h"
 
-void	load_test(t_unit_test **test_list, char *test_name, int (*f)(void))
+int	ft_atoi_launcher(void)
 {
-	if (!test_list)
-		return ;
-	if (!*test_list)
-	{
-		*test_list = ft_lstnew(test_name, f);
-		if (!*test_list)
-			return ;
-	}
-	else
-		ft_lstadd_back(test_list, ft_lstnew(test_name, f));
+	t_unit_test	*test_list = NULL;
+
+	load_test(&test_list, "Basic test", &ft_atoi_basic_test);
+	load_test(&test_list, "NULL test", &ft_atoi_null_test);
+	load_test(&test_list, "Timeout test", &ft_atoi_timeout_test);
+	launch_tests(test_list);
+	return (0);
 }

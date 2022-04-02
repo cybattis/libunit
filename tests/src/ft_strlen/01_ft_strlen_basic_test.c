@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 16:51:05 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/02 15:37:20 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/libunit.h"
-#include "../../includes/ft_strlen_test.h"
+#include "../../../libft/libft.h"
 
-int	strlen_launcher(void)
+int	ft_strlen_basic_test(void)
 {
-	t_unit_test	*test_list;
-
-	load_test(&test_list, "Basic test", &basic_test);
-	load_test(&test_list, "NULL test", &null_test);
-	load_test(&test_list, "Timeout test", &timeout_test);
-	launch_tests(test_list);
-	return (0);
+	if (ft_strlen("coucou") == 6)
+		return (0);
+	return (1);
 }
