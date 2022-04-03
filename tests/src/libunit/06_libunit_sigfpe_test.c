@@ -14,8 +14,8 @@
 
 int	libunit_sigfpe_test(void)
 {
-	int i;
-	int zero;
+	int	i;
+	int	zero;
 
 	zero = 0;
 	i = 10;
