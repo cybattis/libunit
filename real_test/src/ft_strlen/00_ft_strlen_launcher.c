@@ -21,6 +21,6 @@ int	ft_strlen_launcher(int fd)
 	load_test(&test_list, "Basic test", &ft_strlen_basic_test);
 	load_test(&test_list, "NULL test", &ft_strlen_null_test);
 	load_test(&test_list, "Big string test", &ft_strlen_timeout_test);
-	launch_tests(test_list, "[FT_STRLEN]", fd);
+	launch_tests(&test_list, "[FT_STRLEN]", fd);
 	return (0);
 }

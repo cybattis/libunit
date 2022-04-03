@@ -6,7 +6,7 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:38:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 18:30:26 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:01:47 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <signal.h>
 # include <fcntl.h>
 
-# define TIMEOUT 1
+# define TIMEOUT 5
 # define NO_LOG -1
 
 typedef struct s_unit_test
@@ -37,7 +37,7 @@ typedef struct s_test_data
 	pid_t	pid;
 }	t_test_data;
 
-void		launch_tests(t_unit_test *testlist, char *f_name, int fd);
+void		launch_tests(t_unit_test **testlist, char *f_name, int fd);
 void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
 void		print_test(t_unit_test *testlist, t_test_data *test_data, \
 			char *f_name);

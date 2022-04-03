@@ -6,7 +6,7 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:03:40 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 18:32:01 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	signal_launcher(int fd)
 	load_test(&test_list, "SIGFPE", &sigfpe_test);
 	load_test(&test_list, "SIGPIPE", &sigpipe_test);
 	load_test(&test_list, "SIGILL", &sigill_test);
-	launch_tests(test_list, "[SIGNAL]", fd);
+	launch_tests(&test_list, "[SIGNAL]", fd);
 	return (0);
 }

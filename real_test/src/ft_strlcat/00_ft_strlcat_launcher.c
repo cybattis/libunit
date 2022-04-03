@@ -26,6 +26,6 @@ int	ft_strlcat_launcher(int fd)
 	load_test(&test_list, "Long src test", &ft_strlcat_long_src_test);
 	load_test(&test_list, "Size < dst test", &ft_strlcat_size_test);
 	load_test(&test_list, "Size < src test", &ft_strlcat_size_test_2);
-	launch_tests(test_list, "[FT_STRLCAT]", fd);
+	launch_tests(&test_list, "[FT_STRLCAT]", fd);
 	return (0);
 }

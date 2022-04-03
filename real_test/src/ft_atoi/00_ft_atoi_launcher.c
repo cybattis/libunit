@@ -24,6 +24,6 @@ int	ft_atoi_launcher(int fd)
 	load_test(&test_list, "multiple minus test", &ft_atoi_multi_minus_sign);
 	load_test(&test_list, "Space test", &ft_atoi_with_space);
 	load_test(&test_list, "Space and sign test", &ft_atoi_with_space_and_sign);
-	launch_tests(test_list, "[FT_ATOI]", fd);
+	launch_tests(&test_list, "[FT_ATOI]", fd);
 	return (0);
 }

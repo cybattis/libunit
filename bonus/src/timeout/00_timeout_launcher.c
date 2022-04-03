@@ -6,7 +6,7 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 16:56:54 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 18:31:52 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	timeout_launcher(int fd)
 
 	test_list = NULL;
 	load_test(&test_list, "Timeout test", &timeout_test);
-	launch_tests(test_list, "[TIMEOUT]", fd);
+	launch_tests(&test_list, "[TIMEOUT]", fd);
 	return (0);
 }

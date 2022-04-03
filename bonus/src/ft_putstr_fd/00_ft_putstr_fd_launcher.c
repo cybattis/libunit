@@ -19,6 +19,6 @@ int	ft_putstr_fd_launcher(int fd)
 
 	test_list = NULL;
 	load_test(&test_list, "basic test", &ft_putstr_fd_basic_test);
-	launch_tests(test_list, "[FT_PUTSTR_FD]", fd);
+	launch_tests(&test_list, "[FT_PUTSTR_FD]", fd);
 	return (0);
 }

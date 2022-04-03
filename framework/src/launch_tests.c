@@ -6,7 +6,7 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 18:29:35 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:25:52 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static pid_t	fork_test(t_unit_test *testlist)
 			alarm(TIMEOUT);
 		return_value = testlist->f();
 		close(fd);
+		ft_lstclear(&testlist, NULL);
 		exit(return_value);
 	}
 	return (pid);
@@ -57,26 +58,28 @@ static void	test_status(t_test_data *test_data, int fd)
 	}
 }
 
-void	launch_tests(t_unit_test *testlist, char *f_name, int fd)
+void	launch_tests(t_unit_test **testlist, char *f_name, int fd)
 {
+	t_unit_test	*current;
 	t_test_data	test_data;
 
+	current = *testlist;
 	test_data.test_count = 0;
 	test_data.test_passed = 0;
 	test_data.test_failed_signal = 0;
-	while (testlist)
+	while (*testlist)
 	{
-		print_test(testlist, &test_data, f_name);
-		log_test(testlist, &test_data, f_name, fd);
-		test_data.pid = fork_test(testlist);
+		print_test(*testlist, &test_data, f_name);
+		log_test(*testlist, &test_data, f_name, fd);
+		test_data.pid = fork_test(*testlist);
 		if (test_data.pid == -1)
 			break ;
 		else
 			test_status(&test_data, fd);
-		testlist = testlist->next;
+		*testlist = (*testlist)->next;
 	}
 	remove("tmp.txt");
 	print_result(test_data.test_count, test_data.test_passed);
 	log_result(test_data, fd);
-	ft_lstclear(&testlist, NULL);
+	ft_lstclear(&current, NULL);
 }
