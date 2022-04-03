@@ -1,5 +1,5 @@
 
-NAME		=	tester
+NAME		=	real_tester
 LIBUNIT		=	libunit.a
 
 # Config
@@ -17,14 +17,19 @@ INCLUDE		=	-I../includes -I../libft -I includes
 
 SRCDIR		=	src
 
-LIBUNIT_DIR	=	libunit
-SRC_LIBUNIT	=	00_libunit_launcher.c 01_libunit_ok.c 02_libunit_ko.c 03_libunit_sigsegv.c		\
-				04_libunit_sigbus.c 05_libunit_sigabort.c 06_libunit_sigfpe.c 					\
-				07_libunit_sigpipe.c 08_libunit_sigill.c 09_libunit_timeout.c
-TEST_LIBUNIT	=	$(addprefix $(LIBUNIT_DIR)/, $(SRC_LIBUNIT))
+STRLEN_DIR	=	ft_strlen
+SRC_STRLEN	=	00_ft_strlen_launcher.c 01_ft_strlen_basic_test.c 02_ft_strlen_null_test.c						\
+				03_ft_strlen_timeout_test.c
+TEST_STRLEN	=	$(addprefix $(STRLEN_DIR)/, $(SRC_STRLEN))
+
+ATOI_DIR	=	ft_atoi
+SRC_ATOI	=	00_ft_atoi_launcher.c 01_ft_atoi_basic_test.c 02_ft_atoi_minus_sign.c 03_ft_atoi_plus_sign.c	\
+				04_ft_atoi_multi_minus_sign.c
+TEST_ATOI	=	$(addprefix $(ATOI_DIR)/, $(SRC_ATOI))
 
 TEST_SRCS	=	$(addprefix $(SRCDIR)/, main.c)					\
-				$(addprefix $(SRCDIR)/, $(TEST_LIBUNIT))
+				$(addprefix $(SRCDIR)/, $(TEST_STRLEN))			\
+				$(addprefix $(SRCDIR)/, $(TEST_ATOI))
 
 OBJDIR_TEST	=	objt
 OBJSTEST	=	$(addprefix $(OBJDIR_TEST)/, $(notdir $(TEST_SRCS:.c=.o)))
@@ -33,7 +38,7 @@ $(OBJDIR_TEST)/%.o:	$(SRCDIR)/%.c | $(OBJDIR_TEST)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
-$(OBJDIR_TEST)/%.o:	$(LIBUNIT_DIR)/%.c | $(OBJDIR_TEST)
+$(OBJDIR_TEST)/%.o:	$(SRCDIR)/*/%.c | $(OBJDIR_TEST)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 

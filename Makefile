@@ -25,8 +25,8 @@ LINKLIST	=	ft_lstadd_back.c ft_lstclear.c ft_lstdelone.c ft_lstsize.c ft_lstnew.
 
 #IO
 IODIR		=	io
-IO			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_get_next_line.c			\
-				ft_putchar.c ft_puts.c ft_putnbr.c ft_putstr.c
+IO			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putchar.c ft_puts.c		\
+				ft_putnbr.c ft_putstr.c
 #Printf
 PRINTFDIR	=	io/printf
 PRINTF		=	ft_printf.c conv_func.c conv_func2.c get_flags.c print_flags.c print_flags2.c				\
@@ -80,18 +80,26 @@ clean:
 	@printf "$(_YELLOW)Removing object files for libunit...$(_END)\n"
 	@rm -rf $(OBJSDIR) $(OBJSDIRD) $(OBJDIR_TEST)
 	@rm -rf *.dSYM
+	@$(MAKE) -C tests clean
+	@$(MAKE) -C real_test clean
 
 fclean:		clean
 	@printf "$(_RED)Removing libunit static lib file...$(_END)\n"
 	@rm -rf $(NAME) $(NAMED) $(TESTER)
-	@$(MAKE) -j4 -C tests fclean
+	@$(MAKE) -C tests fclean
+	@$(MAKE) -C real_test fclean
 
 re:		fclean all
 
 test:		all
 	@$(MAKE) -j4 -C tests -r -R --warn-undefined-variables
-	@printf "\n=========== Launching test suite ============\n\n"
+	@printf "\n=========== Launching framwork test suite ============\n\n"
 	@./tests/tester
+
+real_test:		all
+	@$(MAKE) -j4 -C real_test -r -R --warn-undefined-variables
+	@printf "\n=========== Launching real test suite ============\n\n"
+	@./real_test/real_tester
 
 $(OBJSDIR):
 	@mkdir -p $(OBJSDIR)

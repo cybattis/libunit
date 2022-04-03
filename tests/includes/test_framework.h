@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_ft_atoi_launcher.c                              :+:      :+:    :+:   */
+/*   test_framework.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <cybattis@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 10:43:14 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 11:07:45 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/libunit.h"
-#include "../../includes/ft_atoi_test.h"
+#ifndef TEST_FRAMEWORK_H
+# define TEST_FRAMEWORK_H
 
-int	ft_atoi_launcher(void)
-{
-	t_unit_test	*test_list = NULL;
+int	libunit_launcher(void);
 
-	load_test(&test_list, "Basic test", &ft_atoi_basic_test);
-	load_test(&test_list, "NULL test", &ft_atoi_null_test);
-	load_test(&test_list, "Timeout test", &ft_atoi_timeout_test);
-	launch_tests(test_list, "ft_atoi");
-	return (0);
-}
+#endif
