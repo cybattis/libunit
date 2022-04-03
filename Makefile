@@ -10,12 +10,12 @@ CC 			=	gcc
 CFLAGS		=	-Wall -Wextra -MD $(INCLUDE)
 DBFLAGS		=	$(CFLAGS) -g3 -fsanitize=address
 
-INCLUDE		=	-Iincludes -Ilibft
+INCLUDE		=	-Iframework/includes -Ilibft
 
 # Source files
 # ****************************************************************************
 
-SRCSDIR		=	src
+SRCSDIR		=	framework/src
 LIBUNIT		=	launch_tests.c launch_tests_utils.c launch_tests_logs.c load_test.c
 
 LIBFT		=	libft

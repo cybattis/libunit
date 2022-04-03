@@ -10,7 +10,7 @@ CC 			=	gcc
 
 CFLAGS		=	-Wall -Wextra -MD $(INCLUDE)
 
-INCLUDE		=	-I../includes -I../libft -I includes
+INCLUDE		=	-I../framework/includes -I../libft -I includes
 
 # Source files
 # ****************************************************************************

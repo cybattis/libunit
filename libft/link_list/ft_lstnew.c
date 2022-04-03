@@ -19,7 +19,7 @@ t_unit_test	*ft_lstnew(char *test_name, int (*f)(void))
 	new = (t_unit_test *)malloc(sizeof(t_unit_test) * 1);
 	if (!new)
 		return (NULL);
-	new->test_name = ft_strdup(test_name);
+	new->test_name = test_name;
 	new->f = f;
 	new->next = NULL;
 	return (new);
