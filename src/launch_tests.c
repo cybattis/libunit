@@ -39,7 +39,7 @@ static pid_t	fork_test(t_unit_test *testlist)
 	return (pid);
 }
 
-static void	test_status(t_test_data *test_data)
+static void	test_status(t_test_data *test_data, int fd)
 {
 	int		status;
 
@@ -48,15 +48,15 @@ static void	test_status(t_test_data *test_data)
 	{
 		if (WEXITSTATUS(status) == 0)
 			test_data->test_passed++;
-		print_test_status(WEXITSTATUS(status));
+		print_test_status(WEXITSTATUS(status), fd);
 	}
 	else if (WIFSIGNALED(status))
 	{
-		print_test_status(WTERMSIG(status));
+		print_test_status(WTERMSIG(status), fd);
 	}
 }
 
-void	launch_tests(t_unit_test *testlist, char *f_name)
+void	launch_tests(t_unit_test *testlist, char *f_name, int fd)
 {
 	t_test_data	test_data;
 
@@ -64,14 +64,14 @@ void	launch_tests(t_unit_test *testlist, char *f_name)
 	test_data.test_passed = 0;
 	while (testlist)
 	{
-		print_test(testlist, &test_data, f_name);
+		print_test(testlist, &test_data, f_name, fd);
 		test_data.pid = fork_test(testlist);
 		if (test_data.pid == -1)
 			break ;
 		else
-			test_status(&test_data);
+			test_status(&test_data, fd);
 		testlist = testlist->next;
 	}
-	print_result(test_data.test_count, test_data.test_passed);
+	print_result(test_data.test_count, test_data.test_passed, fd);
 	ft_lstclear(&testlist, free);
 }

@@ -6,14 +6,14 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 15:10:26 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 15:53:20 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "ft_strlcat_test.h"
 
-int	ft_strlcat_launcher(void)
+int	ft_strlcat_launcher(int fd)
 {
 	t_unit_test	*test_list;
 
@@ -26,6 +26,6 @@ int	ft_strlcat_launcher(void)
 	load_test(&test_list, "Long src test", &ft_strlcat_long_src_test);
 	load_test(&test_list, "Size < dst test", &ft_strlcat_size_test);
 	load_test(&test_list, "Size < src test", &ft_strlcat_size_test_2);
-	launch_tests(test_list, "[FT_STRLCAT]");
+	launch_tests(test_list, "[FT_STRLCAT]", fd);
 	return (0);
 }
