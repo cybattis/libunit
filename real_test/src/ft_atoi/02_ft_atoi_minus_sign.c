@@ -14,7 +14,7 @@
 
 int	ft_atoi_minus_sign(void)
 {
-	int val;
+	int	val;
 
 	val = ft_atoi("-42");
 	if (val == -42)

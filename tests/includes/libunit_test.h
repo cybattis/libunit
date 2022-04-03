@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_TEST_H
-#define LIBUNIT_TEST_H
+# define LIBUNIT_TEST_H
 
 int	libunit_ok_test(void);
 int	libunit_ko_test(void);

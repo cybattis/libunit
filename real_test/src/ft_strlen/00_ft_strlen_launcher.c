@@ -15,11 +15,12 @@
 
 int	ft_strlen_launcher(void)
 {
-	t_unit_test	*test_list = NULL;
+	t_unit_test	*test_list;
 
+	test_list = NULL;
 	load_test(&test_list, "Basic test", &ft_strlen_basic_test);
 	load_test(&test_list, "NULL test", &ft_strlen_null_test);
-	load_test(&test_list, "Timeout test", &ft_strlen_timeout_test);
+	load_test(&test_list, "Big string test", &ft_strlen_timeout_test);
 	launch_tests(test_list, "[FT_STRLEN]");
 	return (0);
 }

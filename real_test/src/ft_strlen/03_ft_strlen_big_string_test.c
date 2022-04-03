@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_ft_strlen_big_string_test.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 14:34:03 by cybattis         ###   ########.fr       */
+/*   Created: 2022/04/02 16:48:03 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 14:46:34 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#include "../../../libft/libft.h"
+#include <string.h>
 
-int	main(void)
+int	ft_strlen_timeout_test(void)
 {
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
-	return (0);
+	size_t	val;
+	size_t	val2;
+	char	*str;
+
+	str = "aaaaaaaaaaaaa bbbbbbbbbbbbb ccccccccccccc ddddddddddddddf"
+		"nejwfn ejkwbnckl enwklcn eklwnckl nklewcn klenwkl nckewkl";
+	val = ft_strlen(str);
+	val2 = strlen(str);
+	if (val == val2)
+		return (0);
+	return (-1);
 }

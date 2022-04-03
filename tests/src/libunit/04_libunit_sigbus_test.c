@@ -6,15 +6,14 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 13:46:05 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 14:22:12 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../../../libft/libft.h"
 
 int	libunit_sigbus_test(void)
 {
-	char buffer[120];
-	strcat("foo", buffer);
+	ft_strlcat("foo", "NULL", 42);
 	return (0);
 }

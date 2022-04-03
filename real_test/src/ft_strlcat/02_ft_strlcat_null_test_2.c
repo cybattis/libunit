@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_ft_strlcat_null_test_2.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 14:34:03 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 14:31:16 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#include "../../../libft/libft.h"
 
-int	main(void)
+int	ft_strlcat_null_test_2(void)
 {
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
+	char	*dst;
+
+	dst = "coucou";
+	ft_strlcat(dst, NULL, 10);
 	return (0);
 }

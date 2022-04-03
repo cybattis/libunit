@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   06_ft_atoi_with_space_and_sign.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 14:34:03 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 14:12:52 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#include "../../../libft/libft.h"
+#include <stdlib.h>
 
-int	main(void)
+int	ft_atoi_with_space_and_sign(void)
 {
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
-	return (0);
+	int	val;
+	int	val2;
+
+	val = ft_atoi("     --+-42");
+	val2 = atoi("     --+-42");
+	if (val == val2)
+		return (0);
+	return (-1);
 }

@@ -15,7 +15,7 @@
 
 int	libunit_sigpipe_test(void)
 {
-	int fd[2];
+	int	fd[2];
 
 	pipe(fd);
 	dup2(fd[1], 1);

@@ -15,8 +15,9 @@
 
 int	libunit_launcher(void)
 {
-	t_unit_test	*test_list = NULL;
+	t_unit_test	*test_list;
 
+	test_list = NULL;
 	load_test(&test_list, "OK test", &libunit_ok_test);
 	load_test(&test_list, "KO test", &libunit_ko_test);
 	load_test(&test_list, "SISGSEV test", &libunit_sigsegv_test);
