@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <cybattis@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 11:07:45 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/02 14:34:03 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_framework.h"
+#include "../includes/test_suite.h"
 
 int	main(void)
 {
-	libunit_launcher();
+	ft_strlen_launcher();
+	ft_atoi_launcher();
 	return (0);
 }
