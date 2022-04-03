@@ -1,6 +1,7 @@
 libunit
 obj*
 /tests/tester
+log.txt
 
 # Prerequisites
 *.d

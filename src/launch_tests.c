@@ -6,7 +6,7 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 15:31:59 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 16:23:48 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,14 @@ static void	test_status(t_test_data *test_data, int fd)
 	{
 		if (WEXITSTATUS(status) == 0)
 			test_data->test_passed++;
-		print_test_status(WEXITSTATUS(status), fd);
+		print_test_status(WEXITSTATUS(status));
+		log_test_status(WEXITSTATUS(status), fd);
 	}
 	else if (WIFSIGNALED(status))
 	{
-		print_test_status(WTERMSIG(status), fd);
+		test_data->test_failed_signal++;
+		print_test_status(WTERMSIG(status));
+		log_test_status(WTERMSIG(status), fd);
 	}
 }
 
@@ -62,9 +65,11 @@ void	launch_tests(t_unit_test *testlist, char *f_name, int fd)
 
 	test_data.test_count = 0;
 	test_data.test_passed = 0;
+	test_data.test_failed_signal = 0;
 	while (testlist)
 	{
-		print_test(testlist, &test_data, f_name, fd);
+		print_test(testlist, &test_data, f_name);
+		log_test(testlist, &test_data, f_name, fd);
 		test_data.pid = fork_test(testlist);
 		if (test_data.pid == -1)
 			break ;
@@ -72,6 +77,7 @@ void	launch_tests(t_unit_test *testlist, char *f_name, int fd)
 			test_status(&test_data, fd);
 		testlist = testlist->next;
 	}
-	print_result(test_data.test_count, test_data.test_passed, fd);
+	print_result(test_data.test_count, test_data.test_passed);
+	log_result(test_data, fd);
 	ft_lstclear(&testlist, free);
 }

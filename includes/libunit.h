@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:38:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 15:49:49 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 16:18:23 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,20 @@ typedef struct s_test_data
 {
 	int		test_count;
 	int		test_passed;
+	int		test_failed_signal;
 	pid_t	pid;
 }	t_test_data;
 
 void		launch_tests(t_unit_test *testlist, char *f_name, int fd);
 void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
 void		print_test(t_unit_test *testlist, t_test_data *test_data, \
-			char *f_name, int fd);
-void		print_test_status(int status, int fd);
-void		print_result(int test_count, int test_passed, int fd);
+			char *f_name);
+void		print_test_status(int status);
+void		print_result(int test_count, int test_passed);
+void		log_test(t_unit_test *lst, t_test_data *t_data, char *f_name, \
+			int fd);
+void		log_test_status(int status, int fd);
+void		log_result(t_test_data test_data, int fd);
 
 int			create_log_file(void);
 
