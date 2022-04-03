@@ -18,9 +18,9 @@ INCLUDE		=	-I../includes -I../libft -I includes
 SRCDIR		=	src
 
 LIBUNIT_DIR	=	libunit
-SRC_LIBUNIT	=	00_libunit_launcher.c 01_libunit_ok.c 02_libunit_ko.c 03_libunit_sigsegv.c		\
-				04_libunit_sigbus.c 05_libunit_sigabort.c 06_libunit_sigfpe.c 					\
-				07_libunit_sigpipe.c 08_libunit_sigill.c 09_libunit_timeout.c
+SRC_LIBUNIT	=	00_libunit_launcher.c 01_libunit_ok_test.c 02_libunit_ko_test.c 03_libunit_sigsegv_test.c		\
+				04_libunit_sigbus_test.c 05_libunit_sigabort_test.c 06_libunit_sigfpe_test.c 					\
+				07_libunit_sigpipe_test.c 08_libunit_sigill_test.c 09_libunit_timeout_test.c
 TEST_LIBUNIT	=	$(addprefix $(LIBUNIT_DIR)/, $(SRC_LIBUNIT))
 
 TEST_SRCS	=	$(addprefix $(SRCDIR)/, main.c)					\
@@ -33,7 +33,7 @@ $(OBJDIR_TEST)/%.o:	$(SRCDIR)/%.c | $(OBJDIR_TEST)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
-$(OBJDIR_TEST)/%.o:	$(LIBUNIT_DIR)/%.c | $(OBJDIR_TEST)
+$(OBJDIR_TEST)/%.o:	$(SRCDIR)/*/%.c | $(OBJDIR_TEST)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
