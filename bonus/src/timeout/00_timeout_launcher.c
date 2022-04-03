@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/libunit.h"
-#include "../../includes/timeout_test.h"
+#include "libunit.h"
+#include "timeout_test.h"
 
 int	timeout_launcher(int fd)
 {

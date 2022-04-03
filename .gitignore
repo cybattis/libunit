@@ -2,6 +2,8 @@ libunit
 obj*
 /tests/tester
 log.txt
+bonus_tester
+.idea
 
 # Prerequisites
 *.d

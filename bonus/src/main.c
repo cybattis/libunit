@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
+#include "libunit.h"
+#include "test_suite.h"
 
 int	main(void)
 {

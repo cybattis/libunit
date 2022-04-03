@@ -6,12 +6,12 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 16:59:50 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 17:00:32 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/libunit.h"
-#include "../../includes/print_color_test.h"
+#include "libunit.h"
+#include "print_color_test.h"
 
 int	print_color_launcher(int fd)
 {

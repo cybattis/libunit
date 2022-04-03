@@ -6,11 +6,11 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 18:09:46 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 18:29:35 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "../includes/libunit.h"
 
 static pid_t	fork_test(t_unit_test *testlist)
 {
@@ -31,7 +31,6 @@ static pid_t	fork_test(t_unit_test *testlist)
 		if (TIMEOUT > 0)
 			alarm(TIMEOUT);
 		return_value = testlist->f();
-		ft_lstclear(&testlist, NULL);
 		close(fd);
 		exit(return_value);
 	}

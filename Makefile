@@ -8,7 +8,6 @@ SHELL 		=	/bin/bash
 CC 			=	gcc
 
 CFLAGS		=	-Wall -Wextra -MD $(INCLUDE)
-DBFLAGS		=	$(CFLAGS) -g3 -fsanitize=address
 
 INCLUDE		=	-Iframework/includes -Ilibft
 

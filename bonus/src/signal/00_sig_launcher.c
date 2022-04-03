@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/libunit.h"
-#include "../../includes/sig_test.h"
+#include "libunit.h"
+#include "sig_test.h"
 
 int	signal_launcher(int fd)
 {

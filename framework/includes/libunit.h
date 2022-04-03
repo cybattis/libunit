@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:38:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 16:18:23 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 18:30:26 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <signal.h>
 # include <fcntl.h>
 
-# define TIMEOUT 5
+# define TIMEOUT 1
 # define NO_LOG -1
 
 typedef struct s_unit_test
