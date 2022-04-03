@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <cybattis@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 15:14:21 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 10:54:28 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 10:49:44 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "../includes/libunit.h"
+#include "../libft/libft.h"
 
-void	print_test(t_unit_test *testlist, t_test_data *test_data)
+void	print_test(t_unit_test *testlist, t_test_data *test_data, char *f_name)
 {
 	test_data->test_count++;
-	ft_putstr_fd("Test ", 1);
+	ft_putstr_fd(f_name, 1);
+	ft_putstr_fd(" ", 1);
 	ft_putnbr_fd(test_data->test_count, 1);
-	ft_putstr_fd(":", 1);
+	ft_putstr_fd(": ", 1);
 	ft_putstr_fd(testlist->test_name, 1);
-	ft_putstr_fd(":", 1);
+	ft_putstr_fd(": ", 1);
 }
 
 void	print_test_status(int status)
@@ -50,5 +52,5 @@ void	print_result(int test_count, int test_passed)
 	ft_putnbr_fd(test_passed, 1);
 	ft_putstr_fd("/", 1);
 	ft_putnbr_fd(test_count, 1);
-	ft_putstr_fd(" tests checked\n", 1);
+	ft_putstr_fd(" tests checked\n\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 16:58:58 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 10:46:24 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	test_status(t_test_data *test_data)
 	print_test_status(status);
 }
 
-void	launch_tests(t_unit_test *testlist)
+void	launch_tests(t_unit_test *testlist, char *f_name)
 {
 	t_test_data	test_data;
 
@@ -48,7 +48,7 @@ void	launch_tests(t_unit_test *testlist)
 	test_data.test_passed = 0;
 	while (testlist)
 	{
-		print_test(testlist, &test_data);
+		print_test(testlist, &test_data, f_name);
 		test_data.pid = fork_test(testlist);
 		if (test_data.pid == -1)
 			break ;
