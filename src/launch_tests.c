@@ -6,7 +6,7 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 10:46:24 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 11:26:56 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static pid_t	fork_test(t_unit_test *testlist)
 	{
 		if (TIMEOUT > 0)
 			alarm(TIMEOUT);
-		testlist->f();
-		exit(0);
+		exit(testlist->f());
 	}
 	return (pid);
 }
