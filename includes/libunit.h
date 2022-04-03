@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:38:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 15:39:20 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 15:49:49 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ typedef struct s_test_data
 	pid_t	pid;
 }	t_test_data;
 
-void		launch_tests(t_unit_test *testlist, char *f_name);
+void		launch_tests(t_unit_test *testlist, char *f_name, int fd);
 void		load_test(t_unit_test **test_list, char *test_name, int (*f)(void));
 void		print_test(t_unit_test *testlist, t_test_data *test_data, \
-			char *f_name);
-void		print_test_status(int status);
-void		print_result(int test_count, int test_passed);
+			char *f_name, int fd);
+void		print_test_status(int status, int fd);
+void		print_result(int test_count, int test_passed, int fd);
+
+int			create_log_file(void);
 
 t_unit_test	*ft_lstnew(char *test_name, int (*f)(void));
 void		ft_lstadd_back(t_unit_test **alst, t_unit_test *new);

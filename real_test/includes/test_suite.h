@@ -13,9 +13,9 @@
 #ifndef TEST_SUITE_H
 # define TEST_SUITE_H
 
-int	ft_strlen_launcher(void);
-int	ft_atoi_launcher(void);
-int	ft_strlcat_launcher(void);
-int	ft_putstr_fd_launcher(void);
+int	ft_strlen_launcher(int fd);
+int	ft_atoi_launcher(int fd);
+int	ft_strlcat_launcher(int fd);
+int	ft_putstr_fd_launcher(int fd);
 
 #endif
