@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_FRAMEWORK_H
+#ifndef TEST_SUITE_H
 # define TEST_SUITE_H
 
 int	ft_strlen_launcher(void);
