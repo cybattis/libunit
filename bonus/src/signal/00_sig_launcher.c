@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   00_sig_launcher.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 17:03:40 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
+#include "../../../includes/libunit.h"
+#include "../../includes/sig_test.h"
 
-int	main(void)
+int	signal_launcher(int fd)
 {
-	ft_strlen_launcher(NO_LOG);
-	ft_atoi_launcher(NO_LOG);
-	ft_strlcat_launcher(NO_LOG);
+	t_unit_test	*test_list;
+
+	test_list = NULL;
+	load_test(&test_list, "SIGABORT", &sigabort_test);
+	load_test(&test_list, "SIGFPE", &sigfpe_test);
+	load_test(&test_list, "SIGPIPE", &sigpipe_test);
+	load_test(&test_list, "SIGILL", &sigill_test);
+	launch_tests(test_list, "[SIGNAL]", fd);
 	return (0);
 }

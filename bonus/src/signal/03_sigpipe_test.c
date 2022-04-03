@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   07_libunit_sigpipe_test.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:55:58 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
+#include <unistd.h>
+#include <stdlib.h>
 
-int	main(void)
+int	sigpipe_test(void)
 {
-	ft_strlen_launcher(NO_LOG);
-	ft_atoi_launcher(NO_LOG);
-	ft_strlcat_launcher(NO_LOG);
-	return (0);
+	int	fd[2];
+
+	pipe(fd);
+	dup2(fd[1], 1);
+	close(fd[1]);
+	close(fd[0]);
+	write (1, "test", 4);
+	exit(0);
 }

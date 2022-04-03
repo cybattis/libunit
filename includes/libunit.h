@@ -20,6 +20,7 @@
 # include <fcntl.h>
 
 # define TIMEOUT 5
+# define NO_LOG -1
 
 typedef struct s_unit_test
 {

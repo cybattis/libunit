@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 16:23:48 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 17:19:52 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
-#include "../libft/libft.h"
 
 static pid_t	fork_test(t_unit_test *testlist)
 {
@@ -33,7 +32,6 @@ static pid_t	fork_test(t_unit_test *testlist)
 			alarm(TIMEOUT);
 		return_value = testlist->f();
 		close(fd);
-		remove ("tmp.txt");
 		exit(return_value);
 	}
 	return (pid);
@@ -77,6 +75,7 @@ void	launch_tests(t_unit_test *testlist, char *f_name, int fd)
 			test_status(&test_data, fd);
 		testlist = testlist->next;
 	}
+	remove("tmp.txt");
 	print_result(test_data.test_count, test_data.test_passed);
 	log_result(test_data, fd);
 	ft_lstclear(&testlist, free);

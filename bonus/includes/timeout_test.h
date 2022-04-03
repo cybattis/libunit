@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd_test.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
+/*   Created: 2022/04/03 14:48:06 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 15:35:51 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
+#ifndef TIMEOUT_TEST_H
+# define TIMEOUT_TEST_H
 
-int	main(void)
-{
-	ft_strlen_launcher(NO_LOG);
-	ft_atoi_launcher(NO_LOG);
-	ft_strlcat_launcher(NO_LOG);
-	return (0);
-}
+int	timeout_test(void);
+
+#endif

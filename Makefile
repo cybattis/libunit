@@ -82,12 +82,14 @@ clean:
 	@rm -rf *.dSYM
 	@$(MAKE) -C tests clean
 	@$(MAKE) -C real_test clean
+	@$(MAKE) -C bonus clean
 
 fclean:		clean
 	@printf "$(_RED)Removing libunit static lib file...$(_END)\n"
 	@rm -rf $(NAME) $(NAMED) $(TESTER)
 	@$(MAKE) -C tests fclean
 	@$(MAKE) -C real_test fclean
+	@$(MAKE) -C bonus fclean
 
 re:		fclean all
 
@@ -96,10 +98,15 @@ test:		all
 	@printf "\n=========== Launching framwork test suite ============\n\n"
 	@./tests/tester
 
-real_test:		all
+real_test:	all
 	@$(MAKE) -j4 -C real_test -r -R --warn-undefined-variables
 	@printf "\n=========== Launching real test suite ============\n\n"
 	@./real_test/real_tester
+
+bonus:		all
+	@$(MAKE) -j4 -C bonus -r -R --warn-undefined-variables
+	@printf "\n=========== Launching bonus suite ============\n\n"
+	@./bonus/bonus_tester
 
 $(OBJSDIR):
 	@mkdir -p $(OBJSDIR)

@@ -6,7 +6,7 @@
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 13:04:15 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	libunit_launcher(void)
 	load_test(&test_list, "SISPIPE test", &libunit_sigpipe_test);
 	load_test(&test_list, "SIGILL test", &libunit_sigill_test);
 	load_test(&test_list, "TIMEOUT test", &libunit_timeout_test);
-	launch_tests(test_list, "[LIBUNIT]");
+	launch_tests(test_list, "[LIBUNIT]", NO_LOG);
 	return (0);
 }

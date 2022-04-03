@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sig_test.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
+/*   Created: 2022/04/03 14:48:06 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 17:03:40 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
+#ifndef SIG_TEST_H
+# define SIG_TEST_H
 
-int	main(void)
-{
-	ft_strlen_launcher(NO_LOG);
-	ft_atoi_launcher(NO_LOG);
-	ft_strlcat_launcher(NO_LOG);
-	return (0);
-}
+int	sigabort_test(void);
+int	sigfpe_test(void);
+int	sigpipe_test(void);
+int	sigill_test(void);
+
+#endif

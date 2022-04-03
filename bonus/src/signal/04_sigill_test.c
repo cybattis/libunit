@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   08_libunit_sigill_test.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 17:16:46 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:56:58 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
-#include "../includes/test_suite.h"
-
-int	main(void)
+int	sigill_test(void)
 {
-	ft_strlen_launcher(NO_LOG);
-	ft_atoi_launcher(NO_LOG);
-	ft_strlcat_launcher(NO_LOG);
+	asm("ud2");
 	return (0);
 }

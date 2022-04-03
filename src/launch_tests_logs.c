@@ -16,7 +16,6 @@
 void	log_test(t_unit_test *lst, t_test_data *t_data, char *f_name,
 		int fd)
 {
-	t_data->test_count++;
 	ft_putstr_fd(f_name, fd);
 	ft_putstr_fd(" ", fd);
 	ft_putnbr_fd(t_data->test_count, fd);
