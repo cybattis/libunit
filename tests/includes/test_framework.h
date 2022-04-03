@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_suite.h                                    :+:      :+:    :+:   */
+/*   test_framework.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cybattis <cybattis@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 14:12:46 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 11:07:45 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_SUITE_H
-# define TEST_SUITE_H
+#ifndef TEST_FRAMEWORK_H
+# define TEST_FRAMEWORK_H
 
-int	ft_strlen_launcher(void);
-int	ft_atoi_launcher(void);
+int	libunit_launcher(void);
 
 #endif

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: cybattis <cybattis@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 15:14:21 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/02 16:58:30 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 10:54:28 by cybattis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libunit.h"
-#include "../libft/libft.h"
+#include "libunit.h"
 
 void	print_test(t_unit_test *testlist, t_test_data *test_data)
 {
