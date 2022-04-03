@@ -30,14 +30,18 @@ TEST_ATOI		=	$(addprefix $(ATOI_DIR)/, $(SRC_ATOI))
 STRLCAT_DIR		=	ft_strlcat
 SRC_STRLCAT		=	00_ft_strlcat_launcher.c 01_ft_strlcat_null_test.c 02_ft_strlcat_null_test_2.c					\
 					03_ft_strlcat_null_test_3.c 04_ft_strlcat_basic_test.c 05_ft_strlcat_long_dst_test.c			\
-					06_ft_strlcat_long_src_test.c 07_ft_strlcat_size_test.c 08_ft_strlcat_size_test_2.c				\
-
+					06_ft_strlcat_long_src_test.c 07_ft_strlcat_size_test.c 08_ft_strlcat_size_test_2.c
 TEST_STRLCAT	=	$(addprefix $(STRLCAT_DIR)/, $(SRC_STRLCAT))
+
+PUTSTR_DIR		=	ft_putstr_fd
+SRC_PUTSTR		=	00_ft_putstr_fd_launcher.c 01_ft_putstr_fd_basic_test.c
+TEST_PUTSTR		=	$(addprefix $(PUTSTR_DIR)/, $(SRC_PUTSTR))
 
 TEST_SRCS		=	$(addprefix $(SRCDIR)/, main.c)					\
 					$(addprefix $(SRCDIR)/, $(TEST_STRLEN))			\
 					$(addprefix $(SRCDIR)/, $(TEST_ATOI))			\
-					$(addprefix $(SRCDIR)/, $(TEST_STRLCAT))
+					$(addprefix $(SRCDIR)/, $(TEST_STRLCAT))		\
+					$(addprefix $(SRCDIR)/, $(TEST_PUTSTR))
 
 OBJDIR_TEST		=	objt
 OBJSTEST		=	$(addprefix $(OBJDIR_TEST)/, $(notdir $(TEST_SRCS:.c=.o)))

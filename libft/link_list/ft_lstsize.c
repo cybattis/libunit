@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <cybattis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:54:09 by cybattis          #+#    #+#             */
-/*   Updated: 2021/11/09 10:55:10 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 15:38:07 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_lstsize(t_unit_test *lst)
 {
 	t_unit_test	*list;
-	int		i;
+	int			i;
 
 	if (!lst)
 		return (0);

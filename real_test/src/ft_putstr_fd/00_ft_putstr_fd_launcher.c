@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   00_ft_putstr_fd_launcher.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 15:20:32 by ctaleb           ###   ########lyon.fr   */
+/*   Created: 2022/04/03 14:46:53 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 15:35:16 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#include "libunit.h"
+#include "ft_putstr_fd_test.h"
 
-int	main(void)
+int	ft_putstr_fd_launcher(void)
 {
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
-	ft_putstr_fd_launcher();
+	t_unit_test	*test_list;
+
+	test_list = NULL;
+	load_test(&test_list, "basic test", &ft_putstr_fd_basic_test);
+	launch_tests(test_list, "[FT_PUTSTR_FD]");
 	return (0);
 }

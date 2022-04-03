@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_ft_putstr_fd_basic_test.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 15:20:32 by ctaleb           ###   ########lyon.fr   */
+/*   Created: 2022/04/03 14:51:25 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 15:37:56 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#include "../../../libft/libft.h"
 
-int	main(void)
+int	ft_putstr_fd_basic_test(void)
 {
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
-	ft_putstr_fd_launcher();
+	FILE	*fp;
+	char	*line;
+	size_t	size;
+
+	ft_putstr_fd("42", 1);
+	fp = fopen("tmp.txt", "r");
+	if (fp == NULL)
+		return (-1);
+	line = NULL;
+	getline(&line, &size, fp);
+	fclose(fp);
+	if (ft_strncmp(line, "42", 2) != 0)
+	{
+		if (line)
+			free(line);
+		return (-1);
+	}
+	if (line)
+		free(line);
 	return (0);
 }

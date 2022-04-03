@@ -16,5 +16,6 @@
 int	ft_strlen_launcher(void);
 int	ft_atoi_launcher(void);
 int	ft_strlcat_launcher(void);
+int	ft_putstr_fd_launcher(void);
 
 #endif

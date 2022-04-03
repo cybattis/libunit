@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd_test.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/03 15:20:32 by ctaleb           ###   ########lyon.fr   */
+/*   Created: 2022/04/03 14:48:06 by ctaleb            #+#    #+#             */
+/*   Updated: 2022/04/03 15:35:51 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/test_suite.h"
+#ifndef FT_PUTSTR_FD_TEST_H
+# define FT_PUTSTR_FD_TEST_H
 
-int	main(void)
-{
-	ft_strlen_launcher();
-	ft_atoi_launcher();
-	ft_strlcat_launcher();
-	ft_putstr_fd_launcher();
-	return (0);
-}
+int	ft_putstr_fd_basic_test(void);
+
+#endif
