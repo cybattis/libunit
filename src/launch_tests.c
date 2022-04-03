@@ -6,7 +6,7 @@
 /*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:52:29 by ctaleb            #+#    #+#             */
-/*   Updated: 2022/04/03 11:26:56 by ctaleb           ###   ########lyon.fr   */
+/*   Updated: 2022/04/03 13:10:47 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,16 @@ static void	test_status(t_test_data *test_data)
 	int		status;
 
 	wait(&status);
-	if (status == 0)
-		test_data->test_passed++;
-	print_test_status(status);
+	if (WIFEXITED(status))
+	{
+		if (WEXITSTATUS(status) == 0)
+			test_data->test_passed++;
+		print_test_status(WEXITSTATUS(status));
+	}
+	else if (WIFSIGNALED(status))
+	{
+		print_test_status(WTERMSIG(status));
+	}
 }
 
 void	launch_tests(t_unit_test *testlist, char *f_name)
