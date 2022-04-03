@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_ft_strlen_launcher.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cybattis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctaleb <ctaleb@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 10:59:38 by cybattis          #+#    #+#             */
-/*   Updated: 2022/04/02 18:37:21 by cybattis         ###   ########.fr       */
+/*   Updated: 2022/04/03 10:43:08 by ctaleb           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	ft_strlen_launcher(void)
 	load_test(&test_list, "Basic test", &ft_strlen_basic_test);
 	load_test(&test_list, "NULL test", &ft_strlen_null_test);
 	load_test(&test_list, "Timeout test", &ft_strlen_timeout_test);
-	launch_tests(test_list);
+	launch_tests(test_list, "ft_strlen");
 	return (0);
 }
